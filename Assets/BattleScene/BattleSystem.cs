@@ -25,11 +25,12 @@ public class BattleSystem : MonoBehaviour
     {
         
     }
-    void NextTurn()
+    public void NextTurn()
     {
         characters[(int)Currentphase].OnTurnEnds();
         Currentphase = (Phase)(((int)Currentphase + 1)%2);
         characters[(int)Currentphase].OnTurnBegins();
+        //StartCoroutine(AnimateTextLog(characters[(int)Currentphase].gameObject.name));
         StartCoroutine(AnimateTextLog(characters[(int)Currentphase].gameObject.name));
         Debug.Log("Turn passed");
     }
